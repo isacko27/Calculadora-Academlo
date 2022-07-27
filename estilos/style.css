@@ -1,0 +1,203 @@
+@font-face{
+    font-family: 'Myriad-Regular';
+    src: url("/estilos/MyriadPro-Regular.otf");
+}
+
+/* :root {
+    --calc-bg-color: rgb(8, 8, 8);
+    --inner-button-color: azure;
+    --active-button-color:rgb(92, 92, 92);
+    --side-button-color: #f69a06;
+    --up-button-color:rgb(160 160 160);
+    --bg-button-color:rgb(44, 44, 44);
+} */
+:root {
+    --calc-bg-color: #2c2c2c;
+    --inner-button-color: #B4FAA2;
+    --active-button-color:#59FAA2;
+    --side-button-color: #f69a06;
+    --up-button-color:rgb(160 160 160);
+    --bg-button-color:rgb(44, 44, 44);
+}
+
+body {
+    background-color: #a7a7a7;
+}
+
+main {
+    display: flex;
+    font-family: 'Myriad-Regular','sans-serif';
+    justify-content: center;
+}
+.ctn-calculator {
+    background-color: var(--calc-bg-color);
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    border-radius: 1em;
+    position: absolute;
+    padding: 1em;
+    outline: 10px dashed var(--active-button-color);
+}
+.display {
+    color: var(--inner-button-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 10px 16px;
+    max-width:18em;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: rgb(20, 20, 20);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+
+.keyboard {
+    color: var(--inner-button-color);
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+.keyboard .button {
+    color: var(--inner-button-color);
+    background-color: var(--bg-button-color);
+    border-radius: 5em;
+    min-width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    padding-top: 4px;
+    transition: filter 0.1s;
+}
+.keyboard .button:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+.keyboard .button:active {
+    filter: brightness(1.60);
+    
+}
+
+.keyboard .large {
+    grid-area: 5 / 1 / 6 / 3;
+    justify-content: left;
+    padding-left: 0.75em;       
+}
+
+.keyboard .side {
+    background-color: var(--side-button-color);
+    font-weight: bolder;
+    border: outset #965f00;
+}
+.keyboard .side:active {
+    filter: brightness(1);
+    background-color: var(--inner-button-color);
+    color: var(--side-button-color);
+    border: inset #965f00;
+}
+.keyboard .side:focus {
+    filter: brightness(1);
+    background-color: var(--inner-button-color);
+    color: var(--side-button-color);
+    border: inset #965f00;
+}
+.keyboard .up {
+    background-color: var(--up-button-color);
+    color: var(--calc-bg-color);
+    font-size: 1.4em;
+    font-weight:bold
+}
+.keyboard .point {
+    font-weight: bolder;
+}
+
+.display span {
+    width: 100%;
+    font-size: 48px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 200;
+}
+.display #cache{
+    font-size: 20px;
+}
+
+.limit {
+    width: 100%;
+    overflow-x: scroll;
+    text-align: right;
+}
+
+.cache-container {
+    opacity: 0;
+    margin-top: 5em;
+    width: 40%;
+    transform: translateX(100%);
+}
+
+.cache-container-active {
+    opacity: 1;
+    outline: 20px dashed var(--active-button-color);
+    background-color: #000000;
+    opacity: 0.7;
+    color: rgb(255, 255, 255);
+    transform: translateX(0%);
+    height: 25em;
+    transition: all 1s;
+}
+
+.cache-active {
+    transform: translateX(-145%) translateY(5em);
+    transition: all 1s;
+}
+
+#firma {
+    position: absolute;
+    left: 44px;
+    top: -45px;
+    color: rgb(255, 255, 255);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bolder;
+}
+
+#firma img {
+    width: 50px;
+    position: relative;
+    top: 20px;
+    left: -23px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(0, 0, 0);
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--bg-button-color);
+    border-radius: 10px;
+  }
+

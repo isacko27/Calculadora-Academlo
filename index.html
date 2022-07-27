@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos/style.css">
+    <title>Calcu de isacko :D</title>
+</head>
+<body>
+    <main>
+        <section class="ctn-calculator">
+            <article class="display">
+
+                <p id="firma"><img src="/estilos/casio-logo-vector-1.svg" alt=""> Calcu isacko :D</p>
+                <div class="limit">
+                    <span id="cache"></span>
+                </div>
+                <div class="limit">
+                    <span id="result">0</span>
+                </div>
+            </article>
+            <article class="keyboard">
+                <button onclick="ac()" class="up button">AC</button>
+                <button onclick="inutil()" class="up button">-/-</button>
+                <button onclick="percentaje()" class="up button">%</button>
+                <button onclick="divition()" class="side button">÷</button>
+                <button onclick="addNumbers1(7)" class="button 7n">7</button>
+                <button onclick="addNumbers1(8)" class="button">8</button>
+                <button onclick="addNumbers1(9)" class="button">9</button>
+                <button onclick="multiplication()" class="side button">x</button>
+                <button onclick="addNumbers1(4)" class="button">4</button>
+                <button onclick="addNumbers1(5)" class="button">5</button>
+                <button onclick="addNumbers1(6)" class="button">6</button>
+                <button onclick="subtraction()" class="side button">-</button>
+                <button onclick="addNumbers1(1)" class="button">1</button>
+                <button onclick="addNumbers1(2)" class="button">2</button>
+                <button onclick="addNumbers1(3)" class="button">3</button>
+                <button onclick="plus()" class="side button">+</button>
+                <button onclick="addNumbers1(0)" class="button large">0</button>
+                <button onclick="point()" class="point button">.</button>
+                <button onclick="equal(numbers_cache)" class="side button">=</button>
+            </article>
+        </section>
+        <section class="cache-container">
+            <article class="memory">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum fugit odio laboriosam non quis itaque voluptatum similique, enim dolorem porro illo in eaque totam, voluptas nisi dignissimos nulla rem praesentium.</article>
+        </section>
+    </main>
+    
+</body>
+<script>
+
+
+    let displayNumber = document.getElementById('result')
+    let ctnDisplayNUmber = document.querySelector('.limit')
+    let showCache = document.getElementById('cache')
+    let aplication = false
+    let restart = false
+    let result_showing = false
+    let numbers_cache = []
+    let memory_cache = ['<____________________Prueba Escribir con las Teclas!____________________>',
+                        '<_____________________________Historial_____________________________>'];
+    const addNumbers1 = (num)=>{
+        let length = displayNumber.innerHTML.length
+        console.log(length)
+        if (restart == true || result_showing == true){
+            console.log("Reiniciando Cache")
+            numbers_cache = []
+            displayNumber.innerHTML = 0
+            showCache.innerHTML = ''
+            restart = false
+            result_showing = false
+        }
+        if (aplication == true){
+            numbers_cache.push(parseInt(displayNumber.innerHTML))
+            displayNumber.innerHTML = 0
+            aplication = false
+        }
+        if(displayNumber.innerHTML != 0){
+            displayNumber.innerHTML += num
+        }
+        else{
+        displayNumber.innerHTML = num
+        }
+        
+    }
+      
+    const multiplication = ()=>{
+        aplication = true
+        addNumbers1(0)
+        numbers_cache.push('*')
+    }
+    const divition = ()=>{
+        aplication = true
+        addNumbers1(0)
+        numbers_cache.push('/')
+    }
+    const subtraction = ()=>{
+        aplication = true
+        addNumbers1(0)
+        numbers_cache.push('-')
+    }
+    const plus = ()=>{
+        aplication = true
+        addNumbers1(0)
+        numbers_cache.push('+')
+    }
+    const percentaje = ()=>{
+        aplication = true
+        addNumbers1(0)
+        numbers_cache.push('%')
+    }
+    const ac = (nums)=>{
+        restart = true
+        addNumbers1(0)
+    }
+    const inutil = (nums)=>{
+        alert("No se para que sirvo Ni me toques xD")
+    }
+    const equal = (nums)=>{
+        numbers_cache.push(parseInt(displayNumber.innerHTML))
+        string_nums = nums.join(" ")
+        console.log(eval(string_nums))
+        showCache.innerHTML = string_nums  + ' ='
+        displayNumber.innerHTML = eval(string_nums)
+        result_showing = true
+        memory(showCache.innerHTML, (displayNumber.innerHTML * 100)/100)
+    }
+    const memory = (nums,result)=>{
+        calcu = document.querySelector('.ctn-calculator')
+        calcu.classList.add("cache-active")
+        background = document.querySelector('.cache-container')
+        memory_cache.push(`
+        ${nums}
+        ${result}`)
+        background.innerHTML = `${memory_cache.join('')}       |`
+        background.classList.add("cache-container-active"), 10000
+
+    }
+
+    document.addEventListener('keydown', (event) => {
+        var name = event.key;
+        var code = event.code;
+        let button = document.querySelectorAll('.button')
+        console.log(name)
+        switch(name){
+            case '0':
+                button[16].click()
+                break
+            case '1':
+                button[12].click()
+                break
+            case '2':
+                button[13].click()
+                break
+            case '3':
+                button[14].click()
+                break
+            case '4':
+                button[8].click()
+                break
+            case '5':
+                button[9].click()
+                break
+            case '6':
+                button[10].click()
+                break
+            case '7':
+                button[4].click()
+                break
+            case '8':
+                button[5].click()
+                break
+            case '9':
+                button[6].click()
+                break
+            case '+':
+                button[15].click()
+                break
+            case '/':
+                button[3].click()
+                break
+            case '%':
+                button[2].click()
+                break
+            case '-':
+                button[11].click()
+                break
+            case '=':
+                button[18].click()
+                break
+            case 'Enter':
+                button[18].click()
+                break
+            case 'Backspace':
+                button[0].click()
+                break
+        }
+    })
+    
+</script>
+</html>
