@@ -36,7 +36,7 @@
                 <button onclick="addNumbers1(3)" class="button">3</button>
                 <button onclick="plus()" class="side button">+</button>
                 <button onclick="addNumbers1(0)" class="button large">0</button>
-                <button onclick="point()" class="point button">.</button>
+                <button onclick="point(numbers_cache)" class="point button">.</button>
                 <button onclick="equal(numbers_cache)" class="side button">=</button>
             </article>
         </section>
@@ -87,26 +87,36 @@
         aplication = true
         addNumbers1(0)
         numbers_cache.push('*')
+        showCache.innerHTML = numbers_cache.join('')
     }
     const divition = ()=>{
         aplication = true
         addNumbers1(0)
         numbers_cache.push('/')
+        showCache.innerHTML = numbers_cache.join('')
     }
     const subtraction = ()=>{
         aplication = true
         addNumbers1(0)
         numbers_cache.push('-')
+        showCache.innerHTML = numbers_cache.join('')
     }
     const plus = ()=>{
         aplication = true
         addNumbers1(0)
         numbers_cache.push('+')
+        showCache.innerHTML = numbers_cache.join('')
     }
     const percentaje = ()=>{
         aplication = true
         addNumbers1(0)
         numbers_cache.push('%')
+        showCache.innerHTML = numbers_cache.join('')
+    }
+    const point = (nums)=>{
+        addNumbers1('.')
+        .push('.')
+        showCache.innerHTML = numbers_cache.join('')
     }
     const ac = (nums)=>{
         restart = true
@@ -186,6 +196,9 @@
                 break
             case '=':
                 button[18].click()
+                break
+            case '*':
+                button[7].click()
                 break
             case 'Enter':
                 button[18].click()

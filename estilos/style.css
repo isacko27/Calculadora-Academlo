@@ -165,6 +165,10 @@ main {
 }
 
 @media (max-width: 1280px) {
+    .ctn-calculator {
+        height: 30em;
+    }
+
     .cache-container {
         transform: none;
     }
