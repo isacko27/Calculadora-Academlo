@@ -144,6 +144,7 @@ main {
 
 .cache-container {
     opacity: 0;
+    max-height: 20em;
     width: 80%;
     transform: translateX(100%);
 }
@@ -165,8 +166,8 @@ main {
 }
 
 @media (max-width: 1280px) {
-    .ctn-calculator {
-        height: 30em;
+    main {
+        grid-auto-rows: 32rem;
     }
 
     .cache-container {
