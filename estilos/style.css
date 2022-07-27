@@ -38,7 +38,7 @@ main {
 
 .ctn-calculator {
     width: 18em;
-    height: 24em;
+    min-height: 24em;
     grid-area: 1/1;
     background-color: var(--calc-bg-color);
     display: grid;
