@@ -147,6 +147,7 @@ main {
     max-height: 20em;
     width: 80%;
     transform: translateX(100%);
+    word-wrap: break-word;
 }
 
 .cache-container-active {
@@ -167,12 +168,12 @@ main {
 
 @media (max-width: 1280px) {
     main {
-        grid-auto-rows: 32rem;
+        grid-auto-rows: 30rem;
     }
 
     .cache-container {
         transform: none;
-        outline: none;
+        outline: 10px dashed var(--active-button-color);
     }
     .cache-active {
         transform: none;
