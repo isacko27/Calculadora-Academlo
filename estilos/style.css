@@ -1,6 +1,6 @@
 @font-face{
     font-family: 'Myriad-Regular';
-    src: url("/estilos/MyriadPro-Regular.otf");
+    src: url("estilos/MyriadPro-Regular.otf");
 }
 
 /* :root {
@@ -148,6 +148,7 @@ main {
     width: 80%;
     transform: translateX(100%);
     word-wrap: break-word;
+    overflow: hidden;
 }
 
 .cache-container-active {

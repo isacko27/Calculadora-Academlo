@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/estilos/style.css">
+    <link rel="stylesheet" href="estilos/style.css">
     <title>Calcu de isacko :D</title>
 </head>
 <body>
@@ -61,6 +61,14 @@
     const addNumbers1 = (num)=>{
         let length = displayNumber.innerHTML.length
         console.log(length)
+        if (aplication == true && result_showing == true){
+            numbers_cache.push(parseInt(displayNumber.innerHTML))
+            numbers_cache = [] 
+            numbers_cache.push(displayNumber.innerHTML)
+            displayNumber.innerHTML = 0
+            aplication = false
+            result_showing = false
+        }
         if (restart == true || result_showing == true){
             console.log("Reiniciando Cache")
             numbers_cache = []
@@ -126,6 +134,7 @@
         alert("No se para que sirvo Ni me toques xD")
     }
     const equal = (nums)=>{
+
         numbers_cache.push(parseInt(displayNumber.innerHTML))
         string_nums = nums.join(" ")
         console.log(eval(string_nums))
@@ -133,6 +142,10 @@
         displayNumber.innerHTML = eval(string_nums)
         result_showing = true
         memory(showCache.innerHTML, (displayNumber.innerHTML * 100)/100)
+        if(isNaN(displayNumber.innerHTML)){
+            displayNumber.innerHTML = 'Error'
+            showCache.innerHTML = 'Error:Sintaxys'
+        }
     }
     const memory = (nums,result)=>{
         calcu = document.querySelector('.ctn-calculator')
